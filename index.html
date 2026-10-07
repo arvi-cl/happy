@@ -21,7 +21,7 @@ body{margin:0;min-height:100%;background:
   radial-gradient(circle at 90% 0,rgba(47,143,232,.22),transparent 26%),
   var(--bg);color:var(--text);font:400 17px/1.55 Nunito,system-ui,sans-serif}
 h1,h2,h3,.btn,.bubble{font-family:"Baloo 2","Trebuchet MS",sans-serif}
-.hero{background:linear-gradient(160deg,#4aa4f5 0%,var(--blue) 42%,#6a4ad4 100%);padding:28px 20px 92px;text-align:center;position:relative;color:#fff;overflow:hidden}
+.hero{background:linear-gradient(160deg,#4aa4f5 0%,var(--blue) 42%,#6a4ad4 100%);padding:28px 16px 78px;text-align:center;position:relative;color:#fff;overflow:visible}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:48px;background:var(--bg);clip-path:ellipse(62% 100% at 50% 100%)}
 .balloon{position:absolute;font-size:28px;opacity:.9;animation:float 6.5s ease-in-out infinite;pointer-events:none}
 .b1{left:6%;top:18px}.b2{right:8%;top:36px;animation-delay:-2s}.b3{left:18%;bottom:70px;animation-delay:-3.4s;font-size:22px}.b4{right:16%;bottom:78px;animation-delay:-1.2s;font-size:22px}
@@ -35,15 +35,15 @@ h1,h2,h3,.btn,.bubble{font-family:"Baloo 2","Trebuchet MS",sans-serif}
 .hero p{margin:18px auto 0;max-width:32ch;font-weight:700;font-size:18px;position:relative;z-index:1}
 .pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 0;position:relative;z-index:1}
 .pills span{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 10px;font-size:13px;font-weight:700}
-.mascot-wrap{display:flex;align-items:flex-end;justify-content:center;gap:8px;margin-top:8px;position:relative;z-index:1}
+.mascot-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:12px;position:relative;z-index:1}
 .kids{display:flex;align-items:flex-end;justify-content:center}
-.duo{width:min(280px,78vw);height:auto;filter:drop-shadow(0 10px 0 rgba(59,35,128,.18));transform-origin:50% 100%;animation:sway 3.4s ease-in-out infinite}
+.duo{width:min(250px,70vw);height:auto;display:block;filter:drop-shadow(0 8px 0 rgba(59,35,128,.16));transform-origin:50% 100%;animation:sway 3.4s ease-in-out infinite}
 .duo.cheer{animation:cheer .7s ease}
 .ig{display:block}
 .ig .duo{width:min(210px,62vw);display:block;margin:0 auto 12px}
 @keyframes sway{50%{transform:rotate(-4deg) translateY(-6px)}}
 @keyframes cheer{0%{transform:rotate(-8deg) scale(1)}40%{transform:rotate(8deg) scale(1.08)}100%{transform:rotate(0) scale(1)}}
-.bubble{background:#fff;color:var(--purple);border-radius:18px 18px 18px 6px;padding:10px 14px;font-weight:800;max-width:180px;box-shadow:0 5px 0 rgba(59,35,128,.18);animation:pop .45s ease}
+.bubble{background:#fff;color:var(--purple);border-radius:18px;padding:10px 14px;font-weight:800;max-width:240px;margin:0;box-shadow:0 5px 0 rgba(59,35,128,.18);animation:pop .45s ease}
 main{max-width:640px;margin:-22px auto 0;padding:0 16px 56px;position:relative}
 .card{background:var(--card);border:3px solid var(--line);border-radius:26px;padding:24px 20px;margin:0 0 18px;box-shadow:0 8px 0 rgba(59,35,128,.05);animation:rise .55s ease both}
 .card:nth-of-type(2){animation-delay:.08s}.card:nth-of-type(3){animation-delay:.14s}
@@ -91,8 +91,9 @@ textarea:focus{border-color:var(--blue);transform:scale(1.01)}
 .preview::before{content:"";position:absolute;top:-10px;left:42%;width:54px;height:18px;background:rgba(255,194,26,.85);transform:rotate(-8deg)}
 .preview img{display:block;width:100%;max-height:300px;object-fit:cover;border-radius:3px}
 .preview.show{display:block;animation:pop .4s ease}
-.ig{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:center}
-.ig img{width:92px;animation:sway 3s ease-in-out infinite}
+.card.ig{display:flex;flex-direction:column;align-items:center;text-align:center;overflow:visible}
+.card.ig .duo{width:min(190px,58vw);margin:0 auto 8px}
+.card.ig h2,.card.ig p,.card.ig .btn{position:relative;z-index:1}
 .ig p{margin:0 0 10px}
 .lock{text-align:center}
 .lock .big{font-size:64px;line-height:1;animation:float 3.2s ease-in-out infinite}
