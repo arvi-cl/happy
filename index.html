@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>¿Cómo estuvo tu cumpleaños? · ARVI Happy</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2f8fe8;--red:#ee3b34;--green:#5fb73a;--yellow:#ffc21a;--pink:#f58ab8;--purple:#3b2380;
+  --bg:#fff8e6;--card:#ffffff;--text:#2a1c5c;--muted:#6b6290;--line:#ecdfb8;--chip:#fff3c4;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1d1440;--card:#2a1d5c;--text:#fff6dd;--muted:#c4b9ee;--line:#43338a;--chip:#3a2a7a}}
+:root[data-theme="dark"]{--bg:#1d1440;--card:#2a1d5c;--text:#fff6dd;--muted:#c4b9ee;--line:#43338a;--chip:#3a2a7a}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font:400 17px/1.55 Nunito,system-ui,sans-serif}
+h1,h2,h3,.btn{font-family:"Baloo 2","Trebuchet MS",sans-serif}
+.hero{background:var(--blue);padding:28px 20px 70px;text-align:center;position:relative;color:#fff}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:44px;background:var(--bg);
+  clip-path:ellipse(60% 100% at 50% 100%)}
+.logo{display:inline-block;background:#fff;border-radius:28px;padding:10px 22px 8px;box-shadow:0 5px 0 var(--purple)}
+.logo b{display:block;font:800 clamp(38px,11vw,60px)/1 "Baloo 2",sans-serif;letter-spacing:1px}
+.logo b i{font-style:normal}
+.logo b i:nth-child(1){color:var(--yellow)}.logo b i:nth-child(2){color:var(--green)}.logo b i:nth-child(3){color:var(--blue)}.logo b i:nth-child(4){color:var(--red)}
+.logo b i:nth-child(5){color:var(--yellow)}.logo b i:nth-child(6){color:var(--red)}.logo b i:nth-child(7){color:var(--blue)}.logo b i:nth-child(8){color:var(--pink)}.logo b i:nth-child(9){color:var(--yellow)}.logo b i:nth-child(10){color:var(--green)}
+.logo span{display:block;background:var(--yellow);color:var(--red);font:800 14px "Baloo 2",sans-serif;border-radius:12px;padding:1px 12px;margin-top:2px}
+.hero p{margin:18px auto 0;max-width:30ch;font-weight:700;font-size:18px}
+main{max-width:640px;margin:-14px auto 0;padding:0 16px 48px}
+.card{background:var(--card);border:3px solid var(--line);border-radius:26px;padding:24px 20px;margin:0 0 20px}
+h1{font-size:clamp(30px,8vw,42px);line-height:1.05;margin:0 0 6px;color:var(--text)}
+h2{font-size:24px;line-height:1.15;margin:0 0 10px}
+.lead{color:var(--muted);margin:0 0 4px}
+.stars{display:flex;gap:4px;margin:8px 0 0}
+.stars button{background:none;border:0;padding:2px;font-size:44px;line-height:1;cursor:pointer;color:var(--line);transition:transform .15s,color .15s}
+.stars button.on{color:var(--yellow)}
+.stars button:active{transform:scale(1.25)}
+.stars-msg{min-height:1.6em;margin:2px 0 0;font-weight:700;color:var(--purple)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stars-msg{color:var(--yellow)}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;background:var(--chip);border:3px solid transparent;border-radius:999px;padding:8px 16px;font-weight:700;cursor:pointer}
+.chip input:checked+span{background:var(--blue);color:#fff;border-color:var(--purple)}
+.chip input:focus-visible+span,.stars button:focus-visible,.btn:focus-visible,textarea:focus-visible,.opt input:focus-visible+span{outline:3px solid var(--red);outline-offset:2px}
+textarea{width:100%;min-height:120px;border:3px solid var(--line);border-radius:18px;padding:14px;font:inherit;color:var(--text);background:var(--bg);resize:vertical}
+.opts{display:grid;gap:10px;margin-top:8px}
+.opt{display:block}
+.opt input{position:absolute;opacity:0}
+.opt span{display:flex;align-items:center;gap:12px;border:3px solid var(--line);border-radius:18px;padding:12px 16px;font-weight:700;cursor:pointer}
+.opt span::before{content:"";width:22px;height:22px;border-radius:50%;border:3px solid var(--blue);flex:none}
+.opt input:checked+span{border-color:var(--green);background:var(--chip)}
+.opt input:checked+span::before{background:var(--green);border-color:var(--green);box-shadow:inset 0 0 0 4px var(--chip)}
+.btn{display:inline-block;border:0;border-radius:999px;padding:12px 28px;font-size:20px;font-weight:800;color:#fff;background:var(--red);box-shadow:0 5px 0 #a8201b;cursor:pointer;text-decoration:none;text-align:center}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #a8201b}
+.btn.blue{background:var(--blue);box-shadow:0 5px 0 #1b62a8}
+.btn.yellow{background:var(--yellow);color:var(--purple);box-shadow:0 5px 0 #c58f00}
+.btn.full{display:block;width:100%}
+.photo{background:var(--purple);color:#fff;border:0}
+.photo h2{color:var(--yellow)}
+.photo p{margin:0 0 16px}
+.preview{display:none;margin:0 0 16px;background:#fff;padding:10px 10px 32px;border-radius:6px;transform:rotate(-2deg);box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.preview img{display:block;width:100%;max-height:300px;object-fit:cover;border-radius:3px}
+.preview.show{display:block}
+.lock{text-align:center}
+.lock .big{font-size:64px;line-height:1}
+.hidden{display:none!important}
+.end{text-align:center;padding:30px 20px;background:var(--yellow);border-color:var(--purple);color:var(--purple)}
+.end h2{font-size:30px}
+.end p{margin:0;font-weight:700;font-size:19px}
+.link{background:none;border:0;color:var(--muted);text-decoration:underline;font:inherit;cursor:pointer;margin-top:14px}
+.thanks{display:none;font-weight:700;color:var(--green);margin:12px 0 0}
+.thanks.show{display:block}
+.alt{margin-top:12px;font-weight:600;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="logo"><b aria-label="ARVI Happy"><i>A</i><i>R</i><i>V</i><i>I</i><i>★</i><i>H</i><i>A</i><i>P</i><i>P</i><i>Y</i></b><span>SALÓN DE CUMPLEAÑOS</span></div>
+  <p>Espacio seguro, risas y diversión asegurada</p>
+</header>
+
+<main>
+  <!-- Estado bloqueado: antes de la fecha agendada -->
+  <section id="locked" class="card lock hidden">
+    <div class="big">🎈</div>
+    <h1>Tu fiesta aún no llega</h1>
+    <p class="lead" id="countdown">Esta sección se abre el día después de tu cumpleaños.</p>
+    <button class="link" id="preview-btn" type="button">Ver cómo se verá (vista previa)</button>
+  </section>
+
+  <!-- Estado desbloqueado -->
+  <div id="unlocked" class="hidden">
+    <section class="card">
+      <h1>Tu cumpleaños ya terminó 🎉</h1>
+      <p class="lead">Ahora queremos saber cómo estuvo tu experiencia en ARVI Happy.</p>
+    </section>
+
+    <form id="fb" novalidate>
+      <section class="card">
+        <h2>¿Cómo nos fue?</h2>
+        <div class="stars" id="stars" role="radiogroup" aria-label="Calificación de 1 a 5 estrellas"></div>
+        <p class="stars-msg" id="stars-msg" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <h2>¿Qué fue lo que más te gustó?</h2>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="gusto" value="juegos"><span>🎠 Los juegos</span></label>
+          <label class="chip"><input type="checkbox" name="gusto" value="entretencion"><span>🥳 La entretención</span></label>
+          <label class="chip"><input type="checkbox" name="gusto" value="atencion"><span>👩‍💼 La atención</span></label>
+          <label class="chip"><input type="checkbox" name="gusto" value="espacio"><span>📍 El espacio</span></label>
+          <label class="chip"><input type="checkbox" name="gusto" value="todo"><span>❤️ Todo</span></label>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Cuéntanos tu experiencia</h2>
+        <textarea id="texto" placeholder="¿Qué recordarán los niños de esta fiesta?" aria-label="Tu experiencia"></textarea>
+      </section>
+
+      <section class="card">
+        <h2>¿Nos recomendarías?</h2>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="reco" value="totalmente"><span>Sí, totalmente</span></label>
+          <label class="opt"><input type="radio" name="reco" value="si"><span>Sí</span></label>
+          <label class="opt"><input type="radio" name="reco" value="sugerencias"><span>Tengo algunas sugerencias</span></label>
+        </div>
+      </section>
+
+      <section class="card" style="border:0;background:none;padding:0">
+        <button class="btn blue full" type="submit">Enviar mi opinión</button>
+        <p class="thanks" id="sent" role="status">¡Gracias! Recibimos tu opinión. 💛</p>
+      </section>
+    </form>
+
+    <section class="card photo">
+      <h2>📸 Muéstranos cómo lo pasaron</h2>
+      <p>Sube una foto de tu cumpleaños y ayúdanos a mostrarle a otras familias cómo es celebrar en ARVI Happy.</p>
+      <div class="preview" id="preview"><img id="preview-img" alt="Foto elegida para subir"></div>
+      <input type="file" id="file" accept="image/*" class="hidden">
+      <button class="btn yellow full" type="button" id="pick">Subir foto</button>
+      <button class="btn full hidden" type="button" id="send-photo" style="margin-top:14px">Enviar foto por correo</button>
+      <p class="thanks show hidden" id="photo-ok" style="color:var(--yellow)">¡Qué linda foto! Ahora envíala a ARVI Happy. 🎈</p>
+      <p class="thanks show hidden" id="photo-note" style="color:#fff"></p>
+    </section>
+
+    <section class="card">
+      <h2>💛 ¿Nos ayudas con una reseña?</h2>
+      <p class="lead">Tu opinión pública ayuda a que otras familias nos encuentren.</p>
+      <a class="btn full" id="gbtn" href="https://www.google.com/search?q=ARVI+Happy+El+Bosque" target="_blank" rel="noopener" style="margin-top:12px">Dejar reseña en Google</a>
+    </section>
+
+    <section class="card end">
+      <h2>Gracias por celebrar con nosotros</h2>
+      <p>Esperamos volver a verte en tu próximo cumpleaños. 🎂</p>
+    </section>
+  </div>
+</main>
+
+<script>
+(function(){
+  // Fecha del cumpleaños: ?fecha=AAAA-MM-DD (si no viene, la página se muestra desbloqueada)
+  var params=new URLSearchParams(location.search), f=params.get('fecha');
+  var locked=document.getElementById('locked'), unlocked=document.getElementById('unlocked');
+  function show(open){locked.classList.toggle('hidden',open);unlocked.classList.toggle('hidden',!open)}
+  var open=true;
+  if(f&&/^\d{4}-\d{2}-\d{2}$/.test(f)){
+    var p=f.split('-'), d=new Date(+p[0],+p[1]-1,+p[2]+1); // se abre al día siguiente
+    if(new Date()<d){
+      open=false;
+      var days=Math.ceil((d-new Date())/864e5);
+      document.getElementById('countdown').textContent=days<=1
+        ?'¡Casi! Esta sección se abre mañana, cuando termine tu cumpleaños.'
+        :'Esta sección se abre en '+days+' días, cuando termine tu cumpleaños.';
+    }
+  }
+  show(open);
+  document.getElementById('preview-btn').onclick=function(){show(true)};
+
+  // Estrellas
+  var msgs=['','Lo sentimos, queremos mejorar','Podemos hacerlo mejor','Estuvo bien','¡Qué bueno!','¡Eso es celebrar! 🎉'];
+  var box=document.getElementById('stars'), msg=document.getElementById('stars-msg'), rating=0, btns=[];
+  for(let i=1;i<=5;i++){
+    var b=document.createElement('button');b.type='button';b.textContent='★';
+    b.setAttribute('role','radio');b.setAttribute('aria-checked','false');b.setAttribute('aria-label',i+(i===1?' estrella':' estrellas'));
+    b.onclick=function(){rating=i;paint()};box.appendChild(b);btns.push(b);
+  }
+  function paint(){btns.forEach(function(b,j){b.classList.toggle('on',j<rating);b.setAttribute('aria-checked',j===rating-1)});msg.textContent=msgs[rating]}
+
+  // Envío (sin servidor: solo confirma en pantalla)
+  document.getElementById('fb').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!rating){msg.textContent='Elige cuántas estrellas nos das.';box.firstChild.focus();return}
+    var gustos=[].map.call(document.querySelectorAll('input[name=gusto]:checked'),function(c){return c.parentNode.textContent.trim()}).join(', ')||'(sin marcar)';
+    var rec=document.querySelector('input[name=reco]:checked');
+    var recTxt=rec?rec.parentNode.textContent.trim():'(sin responder)';
+    var cuerpo='Calificación: '+rating+' de 5 estrellas\n'
+      +'Lo que más le gustó: '+gustos+'\n'
+      +'¿Nos recomendaría?: '+recTxt+'\n'
+      +(f?'Fecha del cumpleaños: '+f+'\n':'')
+      +'\nExperiencia:\n'+(document.getElementById('texto').value.trim()||'(sin comentario)');
+    openMail('Opinión cumpleaños ARVI Happy ('+rating+' estrellas)',cuerpo);
+    var s=document.getElementById('sent');
+    s.textContent='Se abrió tu correo con la opinión lista. Presiona "Enviar" en tu app de correo para que llegue a ARVI Happy. 💛';
+    s.classList.add('show');
+  });
+
+  var MAIL='ventas@arvihappy.com';
+  function openMail(asunto,cuerpo){
+    var a=document.createElement('a');
+    a.href='mailto:'+MAIL+'?subject='+encodeURIComponent(asunto)+'&body='+encodeURIComponent(cuerpo);
+    a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
+  }
+
+  // Enviar foto por correo
+  document.getElementById('send-photo').onclick=function(){
+    var fl=file.files[0]; if(!fl)return;
+    var note=document.getElementById('photo-note');
+    var texto='Foto de mi cumpleaños en ARVI Happy. Enviar a '+MAIL;
+    if(navigator.canShare&&navigator.canShare({files:[fl]})){
+      navigator.share({files:[fl],title:'Foto cumpleaños ARVI Happy',text:texto}).catch(function(){});
+      note.textContent='Elige tu app de correo y envíala a '+MAIL+'.';
+    }else{
+      openMail('Foto de cumpleaños ARVI Happy','Hola ARVI Happy, les envío la foto de mi cumpleaños.\n\n(Adjunta la foto en este correo antes de enviar.)');
+      note.textContent='Se abrió tu correo: adjunta la foto ("'+fl.name+'") y presiona Enviar.';
+    }
+    note.classList.remove('hidden');
+  };
+
+  // Foto
+  var file=document.getElementById('file');
+  document.getElementById('pick').onclick=function(){file.click()};
+  file.onchange=function(){
+    var fl=file.files[0]; if(!fl)return;
+    var r=new FileReader();
+    r.onload=function(){
+      document.getElementById('preview-img').src=r.result;
+      document.getElementById('preview').classList.add('show');
+      document.getElementById('photo-ok').classList.remove('hidden');
+      document.getElementById('send-photo').classList.remove('hidden');
+      document.getElementById('pick').textContent='Cambiar foto';
+    };
+    r.readAsDataURL(fl);
+  };
+})();
+</script>
+</body>
+</html>
